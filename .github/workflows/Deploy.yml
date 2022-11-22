@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        persist-credentials: false
+        persist-credentials: falseZ
     - name: Install python
       uses: actions/setup-python@v2
       with:
@@ -26,7 +26,7 @@ jobs:
             using Pkg; Pkg.activate("."); Pkg.instantiate();
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
-            optimize(prepath="/~thiagomattos/")
+            optimize(prepath="/~thiagomattos/")'
     - name: Deploy to server
       uses: easingthemes/ssh-deploy@main
       with:

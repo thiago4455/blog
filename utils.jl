@@ -17,6 +17,8 @@ end
 
 function hfun_post_listing()
   all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
+  print("Pages found:\n")
+  print(all_pages)
   io = IOBuffer()
   write(io, """<ul class="post_listing">""")
   for page in all_pages

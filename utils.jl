@@ -1,3 +1,5 @@
+using Glob
+
 function hfun_bar(vname)
   val = Meta.parse(vname[1])
   return round(sqrt(val), digits=2)
@@ -16,9 +18,14 @@ function lx_baz(com, _)
 end
 
 function hfun_post_listing()
-  print(Franklin.ALL_PAGE_VARS)
-  print("\n")
+  # print(Franklin.ALL_PAGE_VARS)
+  # print("\n")
   all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
+  # all_pages = chop.(filter!(p -> endswith(p, ".md"), readdir(glob"*.md", "")), tail=3)
+  # all_pages = String[]
+  # for (root, dirs, files) in walkdir("./")
+  #     append!(all_pages, filter!(p -> endswith(p, ".md"), joinpath.(root, files)))
+  # end
   print("Pages found:\n")
   print(all_pages)
   io = IOBuffer()

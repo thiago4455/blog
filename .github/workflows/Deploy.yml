@@ -28,8 +28,6 @@ jobs:
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             optimize(prepath="/~thiagomattos/");
-            Franklin.fd_fullpass(Franklin.fd_setup());
-            optimize(prepath="/~thiagomattos/");'
     - name: Deploy to server
       uses: easingthemes/ssh-deploy@main
       with:

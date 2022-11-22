@@ -16,16 +16,15 @@ function lx_baz(com, _)
 end
 
 function hfun_post_listing()
-  # print(Franklin.ALL_PAGE_VARS)
-  # print("\n")
-  all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
-  # all_pages = chop.(filter!(p -> endswith(p, ".md"), readdir(glob"*.md", "")), tail=3)
+  # all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
   # all_pages = String[]
   # for (root, dirs, files) in walkdir("./")
   #     append!(all_pages, filter!(p -> endswith(p, ".md"), joinpath.(root, files)))
   # end
+  all_pages = String.(chop.(Franklin.get_rpath.(map(d->joinpath(d...), collect(keys(Franklin.fd_setup(false)[3])))), tail=3))
   print("Pages found:\n")
   print(all_pages)
+  print("\n")
   io = IOBuffer()
   write(io, """<ul class="post_listing">""")
   for page in all_pages

@@ -1,0 +1,16 @@
+ul.post_listing {
+    list-style-type: none;
+    padding:unset;
+}
+
+ul.post_listing li {
+    display: flex;
+}
+
+ul.post_listing li span {
+    flex:0 0 130px;
+}
+
+ul.post_listing li a:visited {
+    color:#8b6fcb;
+}

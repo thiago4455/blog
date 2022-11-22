@@ -16,6 +16,8 @@ function lx_baz(com, _)
 end
 
 function hfun_post_listing()
+  print(Franklin.ALL_PAGE_VARS)
+  print("\n")
   all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
   print("Pages found:\n")
   print(all_pages)

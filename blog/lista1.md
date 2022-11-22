@@ -92,4 +92,3 @@ Então obtemos os possíveis estados:
   \end{matrix}
 \right]
 \end{equation*} 
-Eles então são distinguiveis com uma probabilidade de 50%

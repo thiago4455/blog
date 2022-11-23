@@ -1,5 +1,5 @@
 +++
-title = "Lista de exercícios 1"
+title = "Assignment 1"
 +++
 
 #### 1- Distinguir entre pares de estados
@@ -79,8 +79,8 @@ Então obtemos os possíveis estados:
 \ket{\psi^\prime_a}=
 \left[
   \begin{matrix}
-    \frac12\\
-    \frac12
+    \frac1{\sqrt2}\\
+    \frac1{\sqrt2}
   \end{matrix}
 \right]
 \;\&\;
@@ -91,4 +91,5 @@ Então obtemos os possíveis estados:
     1
   \end{matrix}
 \right]
-\end{equation*} 
+\end{equation*}
+Temos então obtendo $\ket{1}$ uma probabilidade de $\frac23$ de termos o estado inicial $\ket{\psi_b}$, e medindo $\ket{0}$ uma probabilidade de 100% de termos o estado inicial $\ket{\psi_a}$

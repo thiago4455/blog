@@ -38,10 +38,17 @@ function hfun_post_listing()
     date = pagevar(page, :date)
     if date == Date(1,1,1)
       try
+        print("Page: ")
+        println(page)
+        println("Full_log:")
+        print(read(`git log --follow --format=%ad --date unix $page.md`, String))
         res = read(pipeline(`git log --follow --format=%ad --date unix $page.md`,`tail -1`), String)
+        print("Date: ")
         print(res)
         date = Date(Dates.unix2datetime(parse(Int64,chop(res, tail=1))))
+        println(date)
       catch e
+        print("Error: ")
         print(e)
         date = Date(Dates.unix2datetime(stat(page * ".md").mtime))
       end

@@ -15,6 +15,12 @@ function lx_baz(com, _)
   return uppercase(brace_content)
 end
 
+function hfun_modtime()
+  res = read(`git log -1 --format="%at" --  $(locvar("fd_rpath"))`, String)
+  date = Franklin.fd_date(Dates.unix2datetime(parse(Int64,res)))
+  return date
+end
+
 function hfun_post_listing()
   # all_pages = sort!(collect(keys(Franklin.ALL_PAGE_VARS)))
   # all_pages = String[]
@@ -32,8 +38,11 @@ function hfun_post_listing()
     date = pagevar(page, :date)
     if date == Date(1,1,1)
       try
-        date = Date(Dates.unix2datetime(parse(Int64,chop(read(pipeline(`git log --follow --format=%ad --date unix $page.md`,`tail -1`), String), tail=1))))
+        res = read(pipeline(`git log --follow --format=%ad --date unix $page.md`,`tail -1`), String)
+        print(res)
+        date = Date(Dates.unix2datetime(parse(Int64,chop(res, tail=1))))
       catch e
+        print(e)
         date = Date(Dates.unix2datetime(stat(page * ".md").mtime))
       end
     end

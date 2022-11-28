@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        persist-credentials: falseZ
+        fetch-depth: 0
     # - run: ./restore_last_git_modified_time.sh
     - name: Install python
       uses: actions/setup-python@v4

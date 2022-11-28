@@ -25,20 +25,30 @@ function hfun_post_listing()
   print("Pages found:\n")
   print(all_pages)
   print("\n")
-  io = IOBuffer()
-  write(io, """<ul class="post_listing">""")
+  pages = Vector{Dict}()
   for page in all_pages
     tags = pagevar(page, :tags)
     title = pagevar(page, :title)
     date = pagevar(page, :date)
     if date == Date(1,1,1)
-      date = Date(Dates.unix2datetime(stat(page * ".md").ctime))
+      try
+        date = Date(Dates.unix2datetime(parse(Int64,chop(read(pipeline(`git log --follow --format=%ad --date unix $page.md`,`tail -1`), String), tail=1))))
+      catch e
+        date = Date(Dates.unix2datetime(stat(page * ".md").mtime))
+      end
     end
     hidden = something(pagevar(page, "hidden"), false)
 
     if !hidden # "blog" in tags
-      write(io, """<li><span><i>$date</i></span/> <a href="/$page">$title</a></li>\n""")
+      push!(pages, Dict(:date=>date,:page=>page,:title=>title))
     end
+  end
+
+  sort!(pages, by=p->p[:date], rev=true)
+  io = IOBuffer()
+  write(io, """<ul class="post_listing">""")
+  for p in pages
+      write(io, """<li><span><i>$(p[:date])</i></span/> <a href="/$(p[:page])">$(p[:title])</a></li>\n""")
   end
   write(io, "</ul>")
   return String(take!(io))

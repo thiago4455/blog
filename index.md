@@ -1,5 +1,5 @@
-@def title = "Franklin Example"
-@def tags = ["syntax", "code"]
+@def title = "Thiago Mattos"
+@def tags = ["index"]
 @def hidden = true
 
 ## Postagens

@@ -1,5 +1,6 @@
 +++
 title = "Assignment 1"
+hidden = true
 +++
 
 #### 1- Distinguir entre pares de estados

@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "julia",
+            "request": "launch",
+            "name": "Run Franklin.jl server",
+            "program": "${workspaceFolder}/.vscode/launch.jl",
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}",
+            "juliaEnv": "${workspaceFolder}",
+            
+        }
+    ]
+}

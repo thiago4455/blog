@@ -43,14 +43,14 @@ $\lambda_+=1$ e $\lambda_-=-1$
 
 #### 2 - Autovalores e autovetores de uma matriz 4x4
 Na base $[\ket{\varphi_0}...\ket{\varphi_3}]$,
-\nonumber{
-$$M=\left[ \begin{matrix}
-    1 & 0 & 0 & 0 \\
-    0 & 0 & 1 & 0 \\
-    0 & 1 & 0 & 0 \\
-    0 & 0 & 0 & 1
-\end{matrix} \right] $$
-}
+\begin{equation*}
+    M=\left[ \begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1
+    \end{matrix} \right]
+\end{equation*}
 
 Autovalores:\\
 $\ket{\varphi_0}\hspace{1.8cm}$ com autovetor $\lambda_0=1$\\
@@ -60,19 +60,18 @@ $\ket{\varphi_3}\hspace{1.8cm}$ com autovetor $\lambda_3=1$\\
 
 
 #### 3- Produtos internos
-\nonumber{
-$$
+\begin{equation*}
     v = \left[\begin{matrix}
         1 \\ 0
     \end{matrix}\right]\hspace{.4cm} \textrm{ e }\hspace{.4cm} w = \left[\begin{matrix}
         0 \\ 1
     \end{matrix}\right]
-$$
+\end{equation*}
 a)$v^\dagger v = 1$ \\
 b)$v^\dagger w = 0$ \\
 c)$vv^\dagger = \left[\begin{matrix}1&0\\0&0\end{matrix}\right]$\\
 d)$v^\dagger Xw$ = 1
-}
+
 
 #### 4 - Matrizes hermitianas
 \nonumber{

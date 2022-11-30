@@ -16,8 +16,15 @@ function lx_baz(com, _)
 end
 
 function hfun_modtime()
-  res = read(`git log -1 --format="%at" --  $(locvar("fd_rpath"))`, String)
-  date = Franklin.fd_date(Dates.unix2datetime(parse(Int64,res)))
+  date = missing
+  try
+    res = read(`git log -1 --format="%at" --  $(locvar("fd_rpath"))`, String)
+    date = Franklin.fd_date(Dates.unix2datetime(parse(Int64,res)))
+  catch e
+    print("Error: ")
+    print(e)
+    date = Franklin.fd_date(Dates.unix2datetime(stat(locvar("fd_rpath")).mtime))
+  end
   return date
 end
 

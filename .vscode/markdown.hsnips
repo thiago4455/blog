@@ -23,9 +23,9 @@ endsnippet
 
 context !math(context)
 snippet en bA
-\begin{equation*}
+\begin{equation}
     $0
-\end{equation*}
+\end{equation}
 endsnippet
 
 context !math(context)
@@ -37,14 +37,22 @@ endsnippet
 
 context !math(context)
 snippet an bA
-\begin{align*}
+\begin{align}
     $0
-\end{align*}
+\end{align}
 endsnippet
 
 context !math(context)
 snippet ll wA
 \$$1\$``rv=[" ",",",".","-","?"].includes(t[1][0])?"":" "``$2
+endsnippet
+
+
+context !math(context)
+snippet LL wA
+\$\$
+    $0
+\$\$
 endsnippet
 
 context math(context)
@@ -73,15 +81,29 @@ equation
 endsnippet
 
 context math(context)
-snippet `(?<={)ma?t?r?i?x?` "matrix"
-matrix
+snippet `(?<={)(b|p)?ma?t?r?i?x?` "matrix"
+``rv=['b','p'].includes(m[0][0])?m[0][0]:''``matrix
 endsnippet
 
 context math(context)
-snippet matrix i
+snippet matrix
 \begin{matrix}
     $1
 \end{matrix}
+endsnippet
+
+context math(context)
+snippet bmatrix
+\begin{bmatrix}
+    $1
+\end{bmatrix}
+endsnippet
+
+context math(context)
+snippet pmatrix
+\begin{pmatrix}
+    $1
+\end{pmatrix}
 endsnippet
 
 context math(context)
@@ -158,6 +180,15 @@ snippet `([a-zA-Z])hat` "hat" A
 \hat{``rv=m[1]``}
 endsnippet
 
+context math(context)
+snippet `(\\?\w+)(,\.|\.,)` "Vector postfix" A
+\vec{``rv=m[1]``}
+endsnippet 
+
+context math(context)
+snippet cvec "column vector" iA
+\begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${3:n} \end{pmatrix}
+endsnippet
 
 
 context math(context)
@@ -166,7 +197,7 @@ snippet lambda "lambda" i
 endsnippet
 
 context math(context)
-snippet ooo "lambda" i
+snippet ooo "infinity" i
 \\infty
 endsnippet
 
@@ -176,13 +207,24 @@ snippet `->` "to" iA
 endsnippet
 
 context math(context)
-snippet lim "lim" iA
-\\lim_{n \\to ${1:\infty}}
+snippet lim "lim" w
+\\lim_{n \\to ${1:\infty}} 
 endsnippet
 
 context math(context)
-snippet sum "lim" iA
-\\sum+{n=1}^{${1:\infty}}
+snippet sum "lim" w
+\\sum+{n=1}^{${1:\infty}} 
+endsnippet
+
+priority 200
+context math(context)
+snippet <-> "leftrightarrow" iA
+\leftrightarrow
+endsnippet
+
+context math(context)
+snippet tt "text" iA
+\text{$1}$0
 endsnippet
 
 snippet `\<(.*?)\|` "bra" A
@@ -195,4 +237,99 @@ endsnippet
 
 snippet `(.*)\\bra{(.*?)}([^\|]*?)\>` "braket" A
 ``rv=m[1]``\braket{``rv=m[2]``}{``rv=m[3].replace('q', '\\psi').replace('f', '\\phi')``}
+endsnippet
+
+priority 200
+context math(context)
+snippet `(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)` "ln" A
+\\``rv=m[1]``
+endsnippet
+
+
+context math(context)
+snippet xx "cross" iA
+\times 
+endsnippet
+
+priority 100
+context math(context)
+snippet ** "cdot" iA
+\cdot 
+endsnippet
+
+context math(context)
+snippet <= "leq" iA
+\le 
+endsnippet
+
+context math(context)
+snippet >= "geq" iA
+\ge 
+endsnippet
+
+context math(context)
+snippet limsup "limsup" w
+\limsup_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+context math(context)
+snippet prod "product" w
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+endsnippet
+
+context math(context)
+snippet part "d/dx" w
+\frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+
+context math(context)
+snippet transpose "transpose" w
+$1^{T}
+endsnippet
+
+context math(context)
+snippet `(?<=\S)tra?n?s?p?o?s?e?` "transpose" 
+^{T}
+endsnippet
+
+
+context math(context)
+snippet transpose "conjulgate transpose" w
+$1^{\dagger}
+endsnippet
+
+context math(context)
+snippet `(?<=\S)ctr?a?n?s?p?o?s?e?` "conjulgate transpose" 
+^{\dagger}
+endsnippet
+
+context math(context)
+snippet lr "left | right" i
+\left$1 $0 \right$2
+endsnippet
+
+context math(context)
+snippet != "not equals" iA
+\neq 
+endsnippet
+
+context math(context)
+snippet => "implies" i
+\implies 
+endsnippet
+
+context math(context)
+snippet =< "implied by" i
+\impliedby 
+endsnippet
+
+context math(context)
+snippet iff "iff" Ai
+\iff 
+endsnippet
+
+context math(context)
+snippet ... "ldots" iA
+\ldots 
 endsnippet

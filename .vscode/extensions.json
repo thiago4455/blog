@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "julialang.language-julia",
-        "0xb074.vscode-franklin"
+        "0xb074.vscode-franklin",
+        "draivin.hsnips",
+        // "brboer.vsc-conceal"
     ]
 }

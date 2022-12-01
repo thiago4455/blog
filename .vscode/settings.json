@@ -1,0 +1,23 @@
+{
+    "hsnips.hsnipsPath": ".vscode/",
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "emmet.showSuggestionsAsSnippets": false,
+    "[markdown]": {
+        "editor.snippetSuggestions": "top",
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggest.showSnippets": false,
+        "editor.quickSuggestions": {
+            "other": "on"
+        }
+    },
+    "editor.suggest.showSnippets": false,
+    "editor.suggest.showWords": false,
+    // "conceal.substitutions": [{
+    //     "language": "markdown",
+    //     "revealOn": "active-line",
+    //     "substitutions": [
+    //       { "ugly": "\\\\lambda", "pretty": "λ" },
+    //     ]
+    // }]
+}

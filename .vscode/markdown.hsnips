@@ -1,0 +1,198 @@
+global
+function math(context) {
+    return context.scopes.some(s => s.includes("meta.math")
+        || s.includes("meta.embedded.math") || s.includes("math.inline"));
+}
+
+endglobal
+
+snippet newpage "Create a new markdown page"
++++
+title = "$1"
++++
+
+#### $2
+endsnippet
+
+context !math(context)
+snippet eq bA
+\begin{equation*}
+    $0
+\end{equation*}
+endsnippet
+
+context !math(context)
+snippet en bA
+\begin{equation*}
+    $0
+\end{equation*}
+endsnippet
+
+context !math(context)
+snippet al bA
+\begin{align*}
+    $0
+\end{align*}
+endsnippet
+
+context !math(context)
+snippet an bA
+\begin{align*}
+    $0
+\end{align*}
+endsnippet
+
+context !math(context)
+snippet ll wA
+\$$1\$``rv=[" ",",",".","-","?"].includes(t[1][0])?"":" "``$2
+endsnippet
+
+context math(context)
+snippet beg "begin{} | end{}" bA
+\begin{$1}
+    $0
+\end{``rv=t[0]``}
+endsnippet
+
+context math(context)
+snippet `(\\\\)?begi?n?` "begin{} | end{}"
+\begin{$1}
+    $0
+\end{``rv=t[0]``}
+endsnippet
+
+# begin | end values
+context math(context)
+snippet `(?<={)al?i?g?n?` "align"
+align
+endsnippet
+
+context math(context)
+snippet `(?<={)eq?u?a?t?i?o?n?` "equation"
+equation
+endsnippet
+
+context math(context)
+snippet `(?<={)ma?t?r?i?x?` "matrix"
+matrix
+endsnippet
+
+context math(context)
+snippet matrix i
+\begin{matrix}
+    $1
+\end{matrix}
+endsnippet
+
+context math(context)
+snippet `([A-Za-z])(\d)` "auto subscript" wA
+``rv=m[1]+'_'+m[2]``
+endsnippet
+
+context math(context)
+snippet `([A-Za-z])_(\d\d)` "auto subscript2" wA
+``rv=m[1]+'_{'+m[2]+'}'``
+endsnippet
+
+context math(context)
+snippet `(\w)__` "auto subscript3" A
+_{$1}
+endsnippet
+
+context math(context)
+snippet `(?<=\S)ao` "auto superscript" A
+^{$1}
+endsnippet
+
+context math(context)
+snippet // "Fraction" iA
+\\frac{$1}{$2}
+endsnippet
+
+context math(context)
+snippet `((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/` "Fraction" A
+\\frac{``rv=m[1]``}{$1}
+endsnippet
+
+
+context math(context)
+snippet `^.*\)/` "() Fraction" A
+``
+let stripped = m[0].substring(0,m[0].length-1)
+let depth = 0
+i = stripped.length-1
+while (true){
+    if (stripped[i] == ')')
+        depth = depth+ 1;
+    if (stripped[i] == '(')
+        depth = depth - 1;
+    if (depth == 0)
+        break;
+    i = i- 1;
+}
+rv = stripped.substring(0,i)+"\\frac{"+stripped.substring(i+1,stripped.length-1) + "}"
+``
+endsnippet
+
+priority 10
+context math(context)
+snippet bar "bar" A
+\overline{$1}$0
+endsnippet
+
+context math(context)
+priority 100
+snippet `([a-zA-Z])bar` "bar" A
+\overline{``rv=m[1]``}
+endsnippet
+
+context math(context)
+priority 10
+snippet hat "hat" A
+\hat{$1}$0
+endsnippet
+
+context math(context)
+priority 100
+snippet `([a-zA-Z])hat` "hat" A
+\hat{``rv=m[1]``}
+endsnippet
+
+
+
+context math(context)
+snippet lambda "lambda" i
+\\lambda
+endsnippet
+
+context math(context)
+snippet ooo "lambda" i
+\\infty
+endsnippet
+
+context math(context)
+snippet `->` "to" iA
+\\to
+endsnippet
+
+context math(context)
+snippet lim "lim" iA
+\\lim_{n \\to ${1:\infty}}
+endsnippet
+
+context math(context)
+snippet sum "lim" iA
+\\sum+{n=1}^{${1:\infty}}
+endsnippet
+
+snippet `\<(.*?)\|` "bra" A
+\bra{``rv=m[1].replace('q', '\\psi').replace('f', '\\phi')``}
+endsnippet
+
+snippet `\|(.*?)\>` "ket" A
+\ket{``rv=m[1].replace('q', '\\psi').replace('f', '\\phi')``}
+endsnippet
+
+snippet `(.*)\\bra{(.*?)}([^\|]*?)\>` "braket" A
+``rv=m[1]``\braket{``rv=m[2]``}{``rv=m[3].replace('q', '\\psi').replace('f', '\\phi')``}
+endsnippet

@@ -61,12 +61,12 @@ html {
 }
 
 .page-foot {
-  font-size: 80%;
+  font-size: 75%;
   font-family: Arial, serif;
   color: #a6a2a0;
   text-align: center;
   margin-top: 6em;
-  border-top: 1px solid lightgrey;
+  border-top: 1px dashed lightgrey;
   padding-top: 2em;
   margin-bottom: 4em;
 }
@@ -123,9 +123,10 @@ h6 {
 
 .franklin-content h1 {
   padding-bottom: 0.5em;
-  border-bottom: 3px double lightgrey;
+  border-bottom: 1px dashed lightgrey;
   margin-top: 1.5em;
   margin-bottom: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;;
 }
 
 .franklin-content h2 {

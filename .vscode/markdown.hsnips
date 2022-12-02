@@ -56,7 +56,7 @@ snippet LL wA
 endsnippet
 
 context math(context)
-snippet beg "begin{} | end{}" bA
+snippet beg "begin{} | end{}" bwA
 \begin{$1}
     $0
 \end{``rv=t[0]``}
@@ -213,7 +213,7 @@ endsnippet
 
 context math(context)
 snippet sum "lim" w
-\\sum+{n=1}^{${1:\infty}} 
+\\sum_{n=1}^{${1:\infty}} 
 endsnippet
 
 priority 200
@@ -332,4 +332,9 @@ endsnippet
 context math(context)
 snippet ... "ldots" iA
 \ldots 
+endsnippet
+
+context math(context)
+snippet === "equic" iA
+\equiv 
 endsnippet

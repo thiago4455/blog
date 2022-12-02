@@ -14,3 +14,21 @@ ul.post_listing li span {
 ul.post_listing li a:visited {
     color:#8b6fcb;
 }
+
+.question{
+    color: #24292e;
+    font-size: var(--small);
+    line-height: 1.35em;
+    border-radius: 6px;
+    padding: 1em;
+    font-family: monospace;
+    background: #fbfbfb;
+    margin-top: -5px;
+}
+
+.question p:first-child{
+    margin-top: 0;
+}
+.question p:last-child{
+    margin-bottom: 5px;
+}

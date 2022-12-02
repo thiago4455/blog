@@ -1,79 +1,122 @@
 +++
-title = "Problem Set 1"
+title = "Problem Set I"
 +++
+
+# Problem Set I
 
 #### 1- Autovalores e autovetores das matrizes de Pauli
 
-Os autovetores de 
-$\sigma_0=\left[\begin{matrix}
-    1 && 0 \\
-    0 && 1
-\end{matrix}\right]$ são: \\
+@@question
+Give the eigenvectors and eigenvalues of these four matrices:
+\begin{align*}
+    \sigma_0\equiv I\equiv
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix}
+
+    \qquad
+
+    &\sigma_1\equiv \sigma_x\equiv X\equiv
+        \begin{bmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{bmatrix}
+        
+    \\ \\
+
+    \sigma_2 \equiv \sigma_y \equiv Y \equiv 
+        \begin{bmatrix}
+            0 & -i \\
+            i & 0
+        \end{bmatrix}
+    
+    \qquad
+
+    &\sigma_3 \equiv \sigma_z \equiv Z \equiv 
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & -1
+        \end{bmatrix}
+
+\end{align*}
+@@
+
+Os autovetores de $\sigma_0$ são: \\
 $\ket+$ e $\ket-$, com autovalores: 
 $\lambda_+=1$ e $\lambda_-=1$ 
 \\ \\
 
 Os autovetores de 
-$\sigma_1=\left[\begin{matrix}
-    0 && 1 \\
-    1 && 0
-\end{matrix}\right]$ são: \\
+$\sigma_1$ são: \\
 $\ket{+_\text x}=\frac1{\sqrt{2}}\left[\ket{+}+\ket{-}\right]$ e \\ $\ket{-_\text x}=\frac1{\sqrt{2}}\left[\ket{+}-\ket{-}\right]$,\\ com autovalores: 
 $\lambda_{+}=1$ e $\lambda_-=-1$
 \\ \\ 
 
 Os autovetores de 
-$\sigma_2=\left[\begin{matrix}
-    0 && -i \\
-    i && 0
-\end{matrix}\right]$ são: \\
+$\sigma_2$ são: \\
 $\ket{+_\text y}=\frac1{\sqrt{2}}\left[\ket{+}+i\ket{-}\right]$
 e \\ $\ket{-_\text y}=\frac1{\sqrt{2}}\left[\ket{+}-i\ket{-}\right]$,\\ com autovalores: 
 $\lambda_{+}=1$ e $\lambda_-=-1$
 \\ \\ 
 
 Os autovetores de
-$\sigma_3=\left[\begin{matrix}
-    1 && 0 \\
-    0 && -1
-\end{matrix}\right]$ são: \\
+$\sigma_3$ são: \\
 $\ket+$ e $\ket-$, com autovalores: 
 $\lambda_+=1$ e $\lambda_-=-1$ 
 \\ \\
 
 #### 2 - Autovalores e autovetores de uma matriz 4x4
-Na base $[\ket{\varphi_0}...\ket{\varphi_3}]$,
+@@question
+Give the eigenvalues and eigenvectors of this matrix:
 \begin{equation*}
-    M=\left[ \begin{matrix}
+    \begin{bmatrix}
         1 & 0 & 0 & 0 \\
         0 & 0 & 1 & 0 \\
         0 & 1 & 0 & 0 \\
         0 & 0 & 0 & 1
-    \end{matrix} \right]
+    \end{bmatrix}
 \end{equation*}
+@@
+Considerando a base $[\ket{\varphi_0}...\ket{\varphi_3}]$, obtemos os autovetores:
 
-Autovalores:\\
-$\ket{\varphi_0}\hspace{1.8cm}$ com autovetor $\lambda_0=1$\\
-$\frac1{\sqrt2}\left[\ket{\varphi_1}+\ket{\varphi_2}\right]\hspace{0.1cm}$ com autovetor $\lambda_1=1$\\
-$\frac1{\sqrt2}\left[\ket{\varphi_1}-\ket{\varphi_2}\right]\hspace{0.1cm}$ com autovetor $\lambda_2=-1$\\
-$\ket{\varphi_3}\hspace{1.8cm}$ com autovetor $\lambda_3=1$\\
 
+$\ket{\varphi_0}\hspace{1.8cm}$ com autovalor $\lambda_0=1$\\
+$\frac1{\sqrt2}\left[\ket{\varphi_1}+\ket{\varphi_2}\right]\hspace{0.1cm}$ com autovalor $\lambda_1=1$\\
+$\frac1{\sqrt2}\left[\ket{\varphi_1}-\ket{\varphi_2}\right]\hspace{0.1cm}$ com autovalor $\lambda_2=-1$\\
+$\ket{\varphi_3}\hspace{1.8cm}$ com autovalor $\lambda_3=1$
+\\ \\
 
 #### 3- Produtos internos
+@@question
+For matrix $M$, let $M^{\dagger}=(M^{T})^{*}$, where $M^{T}$ is the transpose of $M$, and * denotes the complex conjugate of $M$. We call $M^{T}$ the adjoint of $M$.
+Let
 \begin{equation*}
-    v = \left[\begin{matrix}
+    v == \begin{bmatrix}
         1 \\ 0
-    \end{matrix}\right]\hspace{.4cm} \textrm{ e }\hspace{.4cm} w = \left[\begin{matrix}
+    \end{bmatrix}
+    \qquad
+    \textrm{ and }
+    \qquad
+    w = \begin{bmatrix}
         0 \\ 1
-    \end{matrix}\right]
+    \end{bmatrix}   
 \end{equation*}
-a)$v^\dagger v = 1$ \\
-b)$v^\dagger w = 0$ \\
-c)$vv^\dagger = \left[\begin{matrix}1&0\\0&0\end{matrix}\right]$\\
-d)$v^\dagger Xw$ = 1
+@@
 
+a) $v^\dagger v = 1$ \\
+b) $v^\dagger w = 0$ \\
+c) $vv^\dagger = \left[\begin{matrix}1&0\\0&0\end{matrix}\right]$\\
+d) $v^\dagger Xw$ = 1
+\\ \\
 
 #### 4 - Matrizes hermitianas
+@@question
+A matrix M is Hermitian if M† = M. Let M be Hermitian.
+
+$\,$ a) Prove that all of its eigenvalues are real. \\
+$\,$ b) Prove that $v^{\dagger}Mv$ is real, for all vectors $v$. When $v^{\dagger}Mv\gt 0$, we say that $M\gt 0$
+@@
 \nonumber{
 a) Seja $\lambda$ um autovalor qualquer da matriz hermitiana $M$, com autovetor correspondente $v$
 $$Mv=\lambda v$$
@@ -117,8 +160,16 @@ $$
 $$
 Logo $v^\dagger M v$ é real para todo vetor $v$
 }
+\\
 
 #### 5 - Matrizes Unitárias
+@@question
+Let M be Hermitian, and define
+\begin{equation*}
+    U = e^{iM}=\sum_{k}\frac{(iM)^{k}}{k!}
+\end{equation*}
+Prove that $UU^{\dagger}=I$, where $I$ is the identity matrix.
+@@
 \nonumber{
 Uma matriz hermitiana $M$ pode ser escrita como:
 $$

@@ -1,6 +1,6 @@
 +++
 title = "Problem Set II"
-hidden = true
+hidden = false
 +++
 
 # Problem Set II
